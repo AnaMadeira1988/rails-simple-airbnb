@@ -1,0 +1,11 @@
+<!-- display the flats cards -->
+<div class="container">
+  <h1>All our flats(<%= @flats.length %>)</h1>
+  <div class="row">
+    <% @flats.each do |flat| %>
+      <div class="col-md-3 mt-2">
+        <%= render 'card', flat: flat %>
+      </div>
+    <% end %>
+  </div>
+</div>

@@ -1,0 +1,14 @@
+<nav class="navbar bg-body-tertiary mb-5" style="background-color: #e3f2fd;">
+  <div class="container-fluid">
+    <a class="navbar-brand ms-3" href="<%= flats_path %>">
+      <%= image_tag "https://upload.wikimedia.org/wikipedia/commons/6/69/Airbnb_Logo_Bélo.svg",
+          id: "logo", alt: 'logo', width: '120', height: '40' %>
+    </a>
+
+    <form class="d-flex me-3" role="search" action="<%= flats_path %>" method="get">
+      <input class="form-control py-2 me-1" type="search" placeholder="Search" aria-label="Search" name="search">
+      <button class="btn btn-outline-success py-2 me-1" type="submit">Search</button>
+      <%= link_to 'Add flat', new_flat_path, class: "btn btn-outline-dark py-2 me-1" %>
+    </form>
+  </div>
+</nav>

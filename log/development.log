@@ -1,0 +1,1167 @@
+Started GET "/flats" for ::1 at 2024-02-04 03:23:36 +0000
+  [1m[35m (6.3ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  
+ActiveRecord::PendingMigrationError (
+
+Migrations are pending. To resolve this issue, run:
+
+        bin/rails db:migrate
+
+You have 2 pending migrations:
+
+db/migrate/20240203121922_create_flats.rb
+db/migrate/20240204115305_add_img_url_to_flat.rb
+
+
+):
+  
+activerecord (7.1.3) lib/active_record/migration.rb:755:in `check_pending_migrations'
+activerecord (7.1.3) lib/active_record/migration.rb:644:in `block (2 levels) in call'
+activesupport (7.1.3) lib/active_support/file_update_checker.rb:85:in `execute'
+activerecord (7.1.3) lib/active_record/migration.rb:649:in `block in call'
+activerecord (7.1.3) lib/active_record/migration.rb:641:in `synchronize'
+activerecord (7.1.3) lib/active_record/migration.rb:641:in `call'
+actionpack (7.1.3) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+activesupport (7.1.3) lib/active_support/callbacks.rb:101:in `run_callbacks'
+actionpack (7.1.3) lib/action_dispatch/middleware/callbacks.rb:28:in `call'
+actionpack (7.1.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.1.3) lib/action_dispatch/middleware/actionable_exceptions.rb:16:in `call'
+actionpack (7.1.3) lib/action_dispatch/middleware/debug_exceptions.rb:29:in `call'
+web-console (4.2.1) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.2.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.2.1) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.2.1) lib/web_console/middleware.rb:17:in `call'
+actionpack (7.1.3) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (7.1.3) lib/rails/rack/logger.rb:37:in `call_app'
+railties (7.1.3) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (7.1.3) lib/active_support/tagged_logging.rb:135:in `block in tagged'
+activesupport (7.1.3) lib/active_support/tagged_logging.rb:39:in `tagged'
+activesupport (7.1.3) lib/active_support/tagged_logging.rb:135:in `tagged'
+activesupport (7.1.3) lib/active_support/broadcast_logger.rb:240:in `method_missing'
+railties (7.1.3) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.4.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (7.1.3) lib/action_dispatch/middleware/remote_ip.rb:92:in `call'
+actionpack (7.1.3) lib/action_dispatch/middleware/request_id.rb:28:in `call'
+rack (3.0.9) lib/rack/method_override.rb:28:in `call'
+rack (3.0.9) lib/rack/runtime.rb:24:in `call'
+activesupport (7.1.3) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (7.1.3) lib/action_dispatch/middleware/server_timing.rb:59:in `block in call'
+actionpack (7.1.3) lib/action_dispatch/middleware/server_timing.rb:24:in `collect_events'
+actionpack (7.1.3) lib/action_dispatch/middleware/server_timing.rb:58:in `call'
+actionpack (7.1.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.1.3) lib/action_dispatch/middleware/static.rb:25:in `call'
+rack (3.0.9) lib/rack/sendfile.rb:114:in `call'
+actionpack (7.1.3) lib/action_dispatch/middleware/host_authorization.rb:141:in `call'
+railties (7.1.3) lib/rails/engine.rb:536:in `call'
+puma (6.4.2) lib/puma/configuration.rb:272:in `call'
+puma (6.4.2) lib/puma/request.rb:100:in `block in handle_request'
+puma (6.4.2) lib/puma/thread_pool.rb:378:in `with_force_shutdown'
+puma (6.4.2) lib/puma/request.rb:99:in `handle_request'
+puma (6.4.2) lib/puma/server.rb:464:in `process_client'
+puma (6.4.2) lib/puma/server.rb:245:in `block in run'
+puma (6.4.2) lib/puma/thread_pool.rb:155:in `block in spawn_thread'
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "environment"]]
+  [1m[36mActiveRecord::InternalMetadata Create (21.5ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ('environment', 'development', '2024-02-04 03:23:54.732273', '2024-02-04 03:23:54.732277') RETURNING "key"[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateFlats (20240203121922)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.7ms)[0m  [1m[35mCREATE TABLE "flats" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "address" varchar, "description" text, "price_per_night" integer, "number_of_guests" integer, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20240203121922') RETURNING "version"[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mcommit transaction[0m
+Migrating to AddImgUrlToFlat (20240204115305)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.5ms)[0m  [1m[35mALTER TABLE "flats" ADD "img_url" varchar[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.0ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20240204115305') RETURNING "version"[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/flats" for ::1 at 2024-02-04 03:24:06 +0000
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by FlatsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering flats/index.html.erb within layouts/application
+  [1m[36mFlat Load (0.0ms)[0m  [1m[34mSELECT "flats".* FROM "flats"[0m
+  ↳ app/views/flats/index.html.erb:3
+  Rendered flats/index.html.erb within layouts/application (Duration: 3.1ms | Allocations: 1376)
+  Rendered flats/_navbar.html.erb (Duration: 39.7ms | Allocations: 13948)
+  Rendered layout layouts/application.html.erb (Duration: 170.7ms | Allocations: 82402)
+Completed 200 OK in 188ms (Views: 171.1ms | ActiveRecord: 1.2ms | Allocations: 92079)
+
+
+Started GET "/" for 127.0.0.1 at 2024-02-05 23:41:56 +0000
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /home/anamadeira/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/railties-7.1.3/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /home/anamadeira/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/railties-7.1.3/lib/rails/templates/rails/welcome/index.html.erb (Duration: 1.0ms | Allocations: 383)
+Completed 200 OK in 9ms (Views: 4.0ms | ActiveRecord: 0.0ms | Allocations: 3732)
+
+
+Started GET "/flats" for 127.0.0.1 at 2024-02-05 23:42:04 +0000
+Processing by FlatsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering flats/index.html.erb within layouts/application
+  [1m[36mFlat Load (0.4ms)[0m  [1m[34mSELECT "flats".* FROM "flats"[0m
+  ↳ app/views/flats/index.html.erb:3
+  Rendered flats/index.html.erb within layouts/application (Duration: 3.1ms | Allocations: 1393)
+  Rendered flats/_navbar.html.erb (Duration: 39.3ms | Allocations: 8817)
+  Rendered layout layouts/application.html.erb (Duration: 123.7ms | Allocations: 37337)
+Completed 200 OK in 153ms (Views: 124.4ms | ActiveRecord: 1.4ms | Allocations: 44249)
+
+
+Started GET "/flats/new" for 127.0.0.1 at 2024-02-05 23:42:08 +0000
+Processing by FlatsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering flats/new.html.erb within layouts/application
+  Rendered flats/_form.html.erb (Duration: 16.3ms | Allocations: 7491)
+  Rendered flats/new.html.erb within layouts/application (Duration: 17.9ms | Allocations: 7746)
+  Rendered flats/_navbar.html.erb (Duration: 0.9ms | Allocations: 804)
+  Rendered layout layouts/application.html.erb (Duration: 20.2ms | Allocations: 9907)
+Completed 200 OK in 82ms (Views: 20.6ms | ActiveRecord: 0.5ms | Allocations: 24447)
+
+
+Started POST "/flats" for 127.0.0.1 at 2024-02-05 23:43:06 +0000
+Processing by FlatsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "flat"=>{"name"=>"Madrid Delights", "address"=>"Calle des Tomatos", "description"=>"Yuppy", "price_per_night"=>"230", "number_of_guests"=>"2", "img_url"=>"https://images.unsplash.com/photo-1622763846204-5d0bf5031e06?q=80&w=3087&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"}, "commit"=>"Create Flat"}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/flats_controller.rb:15:in `create'
+  [1m[36mFlat Create (1.2ms)[0m  [1m[32mINSERT INTO "flats" ("name", "address", "description", "price_per_night", "number_of_guests", "created_at", "updated_at", "img_url") VALUES (?, ?, ?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["name", "Madrid Delights"], ["address", "Calle des Tomatos"], ["description", "Yuppy"], ["price_per_night", 230], ["number_of_guests", 2], ["created_at", "2024-02-05 23:43:06.994204"], ["updated_at", "2024-02-05 23:43:06.994204"], ["img_url", "https://images.unsplash.com/photo-1622763846204-5d0bf5031e06?q=80&w=3087&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"]]
+  ↳ app/controllers/flats_controller.rb:15:in `create'
+  [1m[36mTRANSACTION (75.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/flats_controller.rb:15:in `create'
+Redirected to http://127.0.0.1:3000/flats
+Completed 302 Found in 88ms (ActiveRecord: 76.4ms | Allocations: 4049)
+
+
+Started GET "/flats" for 127.0.0.1 at 2024-02-05 23:43:07 +0000
+Processing by FlatsController#index as TURBO_STREAM
+  Rendering layout layouts/application.html.erb
+  Rendering flats/index.html.erb within layouts/application
+  [1m[36mFlat Load (0.1ms)[0m  [1m[34mSELECT "flats".* FROM "flats"[0m
+  ↳ app/views/flats/index.html.erb:3
+  Rendered flats/_card.html.erb (Duration: 1.4ms | Allocations: 493)
+  Rendered flats/index.html.erb within layouts/application (Duration: 5.8ms | Allocations: 1345)
+  Rendered flats/_navbar.html.erb (Duration: 1.1ms | Allocations: 787)
+  Rendered layout layouts/application.html.erb (Duration: 9.3ms | Allocations: 3630)
+Completed 200 OK in 11ms (Views: 9.8ms | ActiveRecord: 0.1ms | Allocations: 3983)
+
+
+Started GET "/flats" for 127.0.0.1 at 2024-02-05 23:48:54 +0000
+Processing by FlatsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering flats/index.html.erb within layouts/application
+  [1m[36mFlat Load (0.1ms)[0m  [1m[34mSELECT "flats".* FROM "flats"[0m
+  ↳ app/views/flats/index.html.erb:3
+  Rendered flats/_card.html.erb (Duration: 1.0ms | Allocations: 483)
+  Rendered flats/index.html.erb within layouts/application (Duration: 7.1ms | Allocations: 5721)
+  Rendered flats/_navbar.html.erb (Duration: 1.6ms | Allocations: 1077)
+  Rendered layout layouts/application.html.erb (Duration: 22.7ms | Allocations: 23749)
+Completed 200 OK in 27ms (Views: 22.4ms | ActiveRecord: 1.6ms | Allocations: 25661)
+
+
+Started GET "/flats" for 127.0.0.1 at 2024-02-05 23:49:39 +0000
+Processing by FlatsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering flats/index.html.erb within layouts/application
+  [1m[36mFlat Load (0.1ms)[0m  [1m[34mSELECT "flats".* FROM "flats"[0m
+  ↳ app/views/flats/index.html.erb:3
+  Rendered flats/_card.html.erb (Duration: 0.5ms | Allocations: 149)
+  Rendered flats/index.html.erb within layouts/application (Duration: 2.7ms | Allocations: 791)
+  Rendered flats/_navbar.html.erb (Duration: 1.2ms | Allocations: 686)
+  Rendered layout layouts/application.html.erb (Duration: 14.1ms | Allocations: 4264)
+Completed 200 OK in 15ms (Views: 14.6ms | ActiveRecord: 0.1ms | Allocations: 4537)
+
+
+Started GET "/flats" for 127.0.0.1 at 2024-02-05 23:51:49 +0000
+Processing by FlatsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering flats/index.html.erb within layouts/application
+  [1m[36mFlat Load (0.1ms)[0m  [1m[34mSELECT "flats".* FROM "flats"[0m
+  ↳ app/views/flats/index.html.erb:3
+  Rendered flats/_card.html.erb (Duration: 0.5ms | Allocations: 149)
+  Rendered flats/index.html.erb within layouts/application (Duration: 2.8ms | Allocations: 799)
+  Rendered flats/_navbar.html.erb (Duration: 1.4ms | Allocations: 707)
+  Rendered layout layouts/application.html.erb (Duration: 13.0ms | Allocations: 4309)
+Completed 200 OK in 15ms (Views: 13.6ms | ActiveRecord: 0.1ms | Allocations: 4578)
+
+
+Started GET "/flats" for 127.0.0.1 at 2024-02-05 23:56:09 +0000
+Processing by FlatsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering flats/index.html.erb within layouts/application
+  [1m[36mFlat Load (0.1ms)[0m  [1m[34mSELECT "flats".* FROM "flats"[0m
+  ↳ app/views/flats/index.html.erb:3
+  Rendered flats/_card.html.erb (Duration: 4.8ms | Allocations: 483)
+  Rendered flats/index.html.erb within layouts/application (Duration: 12.1ms | Allocations: 5752)
+  Rendered flats/_navbar.html.erb (Duration: 1.4ms | Allocations: 1089)
+  Rendered layout layouts/application.html.erb (Duration: 59.8ms | Allocations: 21569)
+Completed 200 OK in 63ms (Views: 59.3ms | ActiveRecord: 1.6ms | Allocations: 23476)
+
+
+Started GET "/flats" for 127.0.0.1 at 2024-02-05 23:58:49 +0000
+Processing by FlatsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering flats/index.html.erb within layouts/application
+  [1m[36mFlat Load (0.1ms)[0m  [1m[34mSELECT "flats".* FROM "flats"[0m
+  ↳ app/views/flats/index.html.erb:3
+  Rendered flats/_card.html.erb (Duration: 1.9ms | Allocations: 483)
+  Rendered flats/index.html.erb within layouts/application (Duration: 13.1ms | Allocations: 5709)
+  Rendered flats/_navbar.html.erb (Duration: 3.0ms | Allocations: 1094)
+  Rendered layout layouts/application.html.erb (Duration: 37.8ms | Allocations: 21476)
+Completed 200 OK in 42ms (Views: 37.2ms | ActiveRecord: 2.3ms | Allocations: 23383)
+
+
+Started GET "/flats" for 127.0.0.1 at 2024-02-05 23:59:45 +0000
+Processing by FlatsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering flats/index.html.erb within layouts/application
+  [1m[36mFlat Load (0.1ms)[0m  [1m[34mSELECT "flats".* FROM "flats"[0m
+  ↳ app/views/flats/index.html.erb:3
+  Rendered flats/_card.html.erb (Duration: 1.3ms | Allocations: 483)
+  Rendered flats/index.html.erb within layouts/application (Duration: 14.4ms | Allocations: 5709)
+  Rendered flats/_navbar.html.erb (Duration: 4.7ms | Allocations: 1092)
+  Rendered layout layouts/application.html.erb (Duration: 38.2ms | Allocations: 21451)
+Completed 200 OK in 45ms (Views: 38.2ms | ActiveRecord: 2.6ms | Allocations: 23357)
+
+
+Started GET "/flats" for 127.0.0.1 at 2024-02-06 00:02:40 +0000
+Processing by FlatsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering flats/index.html.erb within layouts/application
+  [1m[36mFlat Load (0.1ms)[0m  [1m[34mSELECT "flats".* FROM "flats"[0m
+  ↳ app/views/flats/index.html.erb:3
+  Rendered flats/_card.html.erb (Duration: 1.5ms | Allocations: 483)
+  Rendered flats/index.html.erb within layouts/application (Duration: 9.2ms | Allocations: 5691)
+  Rendered flats/_navbar.html.erb (Duration: 2.6ms | Allocations: 1090)
+  Rendered layout layouts/application.html.erb (Duration: 25.4ms | Allocations: 21397)
+Completed 200 OK in 31ms (Views: 25.4ms | ActiveRecord: 1.7ms | Allocations: 23303)
+
+
+Started GET "/flats" for 127.0.0.1 at 2024-02-06 00:03:44 +0000
+Processing by FlatsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering flats/index.html.erb within layouts/application
+  [1m[36mFlat Load (0.2ms)[0m  [1m[34mSELECT "flats".* FROM "flats"[0m
+  ↳ app/views/flats/index.html.erb:3
+  Rendered flats/_card.html.erb (Duration: 1.5ms | Allocations: 483)
+  Rendered flats/index.html.erb within layouts/application (Duration: 13.1ms | Allocations: 5689)
+  Rendered flats/_navbar.html.erb (Duration: 2.4ms | Allocations: 1124)
+  Rendered layout layouts/application.html.erb (Duration: 36.7ms | Allocations: 21502)
+Completed 200 OK in 41ms (Views: 36.1ms | ActiveRecord: 2.3ms | Allocations: 23403)
+
+
+Started GET "/flats" for 127.0.0.1 at 2024-02-06 00:04:22 +0000
+Processing by FlatsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering flats/index.html.erb within layouts/application
+  [1m[36mFlat Load (0.1ms)[0m  [1m[34mSELECT "flats".* FROM "flats"[0m
+  ↳ app/views/flats/index.html.erb:3
+  Rendered flats/_card.html.erb (Duration: 1.1ms | Allocations: 483)
+  Rendered flats/index.html.erb within layouts/application (Duration: 14.8ms | Allocations: 5748)
+  Rendered flats/_navbar.html.erb (Duration: 2.8ms | Allocations: 1077)
+  Rendered layout layouts/application.html.erb (Duration: 32.9ms | Allocations: 21493)
+Completed 200 OK in 43ms (Views: 36.8ms | ActiveRecord: 2.6ms | Allocations: 23399)
+
+
+Started GET "/flats" for 127.0.0.1 at 2024-02-06 00:04:33 +0000
+Processing by FlatsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering flats/index.html.erb within layouts/application
+  [1m[36mFlat Load (0.2ms)[0m  [1m[34mSELECT "flats".* FROM "flats"[0m
+  ↳ app/views/flats/index.html.erb:3
+  Rendered flats/_card.html.erb (Duration: 2.6ms | Allocations: 483)
+  Rendered flats/index.html.erb within layouts/application (Duration: 18.5ms | Allocations: 5691)
+  Rendered flats/_navbar.html.erb (Duration: 2.4ms | Allocations: 1076)
+  Rendered layout layouts/application.html.erb (Duration: 34.3ms | Allocations: 21401)
+Completed 200 OK in 40ms (Views: 32.3ms | ActiveRecord: 3.9ms | Allocations: 23307)
+
+
+Started GET "/flats" for 127.0.0.1 at 2024-02-06 00:04:49 +0000
+Processing by FlatsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering flats/index.html.erb within layouts/application
+  [1m[36mFlat Load (0.2ms)[0m  [1m[34mSELECT "flats".* FROM "flats"[0m
+  ↳ app/views/flats/index.html.erb:3
+  Rendered flats/_card.html.erb (Duration: 2.4ms | Allocations: 483)
+  Rendered flats/index.html.erb within layouts/application (Duration: 15.9ms | Allocations: 5689)
+  Rendered flats/_navbar.html.erb (Duration: 3.1ms | Allocations: 1089)
+  Rendered layout layouts/application.html.erb (Duration: 44.9ms | Allocations: 21433)
+Completed 200 OK in 52ms (Views: 44.3ms | ActiveRecord: 3.2ms | Allocations: 23334)
+
+
+Started GET "/flats" for 127.0.0.1 at 2024-02-06 00:04:51 +0000
+Processing by FlatsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering flats/index.html.erb within layouts/application
+  [1m[36mFlat Load (0.2ms)[0m  [1m[34mSELECT "flats".* FROM "flats"[0m
+  ↳ app/views/flats/index.html.erb:3
+  Rendered flats/_card.html.erb (Duration: 0.8ms | Allocations: 149)
+  Rendered flats/index.html.erb within layouts/application (Duration: 3.3ms | Allocations: 791)
+  Rendered flats/_navbar.html.erb (Duration: 9.1ms | Allocations: 686)
+  Rendered layout layouts/application.html.erb (Duration: 17.1ms | Allocations: 2866)
+Completed 200 OK in 19ms (Views: 17.7ms | ActiveRecord: 0.2ms | Allocations: 3139)
+
+
+Started GET "/flats" for 127.0.0.1 at 2024-02-06 00:12:18 +0000
+Processing by FlatsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering flats/index.html.erb within layouts/application
+  [1m[36mFlat Load (1.2ms)[0m  [1m[34mSELECT "flats".* FROM "flats"[0m
+  ↳ app/views/flats/index.html.erb:3
+  Rendered flats/_card.html.erb (Duration: 1.3ms | Allocations: 483)
+  Rendered flats/index.html.erb within layouts/application (Duration: 9.7ms | Allocations: 5176)
+  Rendered flats/_navbar.html.erb (Duration: 5.3ms | Allocations: 1590)
+  Rendered layout layouts/application.html.erb (Duration: 31.6ms | Allocations: 21456)
+Completed 500 Internal Server Error in 37ms (ActiveRecord: 1.9ms | Allocations: 23391)
+
+
+  
+ActionView::SyntaxErrorInTemplate (Encountered a syntax error while rendering template: check <nav class="navbar bg-body-tertiary" style="background-color: #e3f2fd;">
+  <div class="container-fluid d-flex justify-content-between align-items-center">
+
+    <%= link_to flats_path, class:'navbar-brand' do %>
+      <%= image_tag "https://upload.wikimedia.org/wikipedia/commons/6/69/Airbnb_Logo_Bélo.svg",
+      id:"logo", alt: 'logo', width:'120', height:'40' %>
+    <% end %>
+
+    <div>
+      <%= class:"d-flex" simple_form_for :search, url: flats_path, method: "get" do |f| %>
+        <%= f.input :search,
+        placeholder: 'Search', class:'form-control me-2 p-2' %>
+        <%= f.button :submit, class: 'btn btn-outline-success' %>
+        <%= link_to 'Add flat', new_flat_path, class: "btn btn-outline-dark " %>
+      <% end %>
+    </div>
+
+  </div>
+</nav>
+
+):
+1:    <nav class="navbar bg-body-tertiary" style="background-color: #e3f2fd;">
+2:      <div class="container-fluid d-flex justify-content-between align-items-center">
+3:    
+4:        <%= link_to flats_path, class:'navbar-brand' do %>
+5:          <%= image_tag "https://upload.wikimedia.org/wikipedia/commons/6/69/Airbnb_Logo_Bélo.svg",
+6:          id:"logo", alt: 'logo', width:'120', height:'40' %>
+7:        <% end %>
+8:    
+9:        <div>
+10:          <%= class:"d-flex" simple_form_for :search, url: flats_path, method: "get" do |f| %>
+11:            <%= f.input :search,
+12:            placeholder: 'Search', class:'form-control me-2 p-2' %>
+13:            <%= f.button :submit, class: 'btn btn-outline-success' %>
+14:            <%= link_to 'Add flat', new_flat_path, class: "btn btn-outline-dark " %>
+15:          <% end %>
+16:        </div>
+17:    
+18:      </div>
+19:    </nav>
+  
+app/views/flats/_navbar.html.erb:10: syntax error, unexpected local variable or method, expecting '.' or &. or :: or '['
+app/views/flats/_navbar.html.erb:10: syntax error, unexpected `do', expecting `end'
+app/views/flats/_navbar.html.erb:22: syntax error, unexpected `end', expecting end-of-input
+app/views/layouts/application.html.erb:18
+Started GET "/flats" for 127.0.0.1 at 2024-02-06 00:13:21 +0000
+Processing by FlatsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering flats/index.html.erb within layouts/application
+  [1m[36mFlat Load (0.1ms)[0m  [1m[34mSELECT "flats".* FROM "flats"[0m
+  ↳ app/views/flats/index.html.erb:3
+  Rendered flats/_card.html.erb (Duration: 2.0ms | Allocations: 483)
+  Rendered flats/index.html.erb within layouts/application (Duration: 13.4ms | Allocations: 5749)
+  Rendered flats/_navbar.html.erb (Duration: 1.5ms | Allocations: 1269)
+  Rendered layout layouts/application.html.erb (Duration: 33.8ms | Allocations: 21726)
+Completed 500 Internal Server Error in 40ms (ActiveRecord: 2.7ms | Allocations: 23647)
+
+
+  
+ActionView::SyntaxErrorInTemplate (Encountered a syntax error while rendering template: check <nav class="navbar bg-body-tertiary" style="background-color: #e3f2fd;">
+  <div class="container-fluid">
+
+    <%= link_to flats_path, class:'navbar-brand' do %>
+      <%= image_tag "https://upload.wikimedia.org/wikipedia/commons/6/69/Airbnb_Logo_Bélo.svg",
+      id:"logo", alt: 'logo', width:'120', height:'40' %>
+    <% end %>
+
+    <%= class:"d-flex" simple_form_for :search, url: flats_path, method: "get" do |f| %>
+      <%= f.input :search,
+      placeholder: 'Search', class:'form-control me-2 p-2' %>
+      <%= f.button :submit, class: 'btn btn-outline-success' %>
+      <%= link_to 'Add flat', new_flat_path, class: "btn btn-outline-dark " %>
+    <% end %>
+    </div>
+
+  </div>
+</nav>
+
+):
+1:    <nav class="navbar bg-body-tertiary" style="background-color: #e3f2fd;">
+2:      <div class="container-fluid">
+3:    
+4:        <%= link_to flats_path, class:'navbar-brand' do %>
+5:          <%= image_tag "https://upload.wikimedia.org/wikipedia/commons/6/69/Airbnb_Logo_Bélo.svg",
+6:          id:"logo", alt: 'logo', width:'120', height:'40' %>
+7:        <% end %>
+8:    
+9:        <%= class:"d-flex" simple_form_for :search, url: flats_path, method: "get" do |f| %>
+10:          <%= f.input :search,
+11:          placeholder: 'Search', class:'form-control me-2 p-2' %>
+12:          <%= f.button :submit, class: 'btn btn-outline-success' %>
+13:          <%= link_to 'Add flat', new_flat_path, class: "btn btn-outline-dark " %>
+14:        <% end %>
+15:        </div>
+16:    
+17:      </div>
+18:    </nav>
+  
+app/views/flats/_navbar.html.erb:9: syntax error, unexpected local variable or method, expecting '.' or &. or :: or '['
+app/views/flats/_navbar.html.erb:9: syntax error, unexpected `do', expecting `end'
+app/views/flats/_navbar.html.erb:21: syntax error, unexpected `end', expecting end-of-input
+app/views/layouts/application.html.erb:18
+Started GET "/flats" for 127.0.0.1 at 2024-02-06 00:13:24 +0000
+Processing by FlatsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering flats/index.html.erb within layouts/application
+  [1m[36mFlat Load (0.1ms)[0m  [1m[34mSELECT "flats".* FROM "flats"[0m
+  ↳ app/views/flats/index.html.erb:3
+  Rendered flats/_card.html.erb (Duration: 0.4ms | Allocations: 149)
+  Rendered flats/index.html.erb within layouts/application (Duration: 2.3ms | Allocations: 791)
+  Rendered flats/_navbar.html.erb (Duration: 1.3ms | Allocations: 1311)
+  Rendered layout layouts/application.html.erb (Duration: 6.7ms | Allocations: 3512)
+Completed 500 Internal Server Error in 8ms (ActiveRecord: 0.1ms | Allocations: 3809)
+
+
+  
+ActionView::SyntaxErrorInTemplate (Encountered a syntax error while rendering template: check <nav class="navbar bg-body-tertiary" style="background-color: #e3f2fd;">
+  <div class="container-fluid">
+
+    <%= link_to flats_path, class:'navbar-brand' do %>
+      <%= image_tag "https://upload.wikimedia.org/wikipedia/commons/6/69/Airbnb_Logo_Bélo.svg",
+      id:"logo", alt: 'logo', width:'120', height:'40' %>
+    <% end %>
+
+    <%= class:"d-flex" simple_form_for :search, url: flats_path, method: "get" do |f| %>
+      <%= f.input :search,
+      placeholder: 'Search', class:'form-control me-2 p-2' %>
+      <%= f.button :submit, class: 'btn btn-outline-success' %>
+      <%= link_to 'Add flat', new_flat_path, class: "btn btn-outline-dark " %>
+    <% end %>
+    </div>
+
+  </div>
+</nav>
+
+):
+1:    <nav class="navbar bg-body-tertiary" style="background-color: #e3f2fd;">
+2:      <div class="container-fluid">
+3:    
+4:        <%= link_to flats_path, class:'navbar-brand' do %>
+5:          <%= image_tag "https://upload.wikimedia.org/wikipedia/commons/6/69/Airbnb_Logo_Bélo.svg",
+6:          id:"logo", alt: 'logo', width:'120', height:'40' %>
+7:        <% end %>
+8:    
+9:        <%= class:"d-flex" simple_form_for :search, url: flats_path, method: "get" do |f| %>
+10:          <%= f.input :search,
+11:          placeholder: 'Search', class:'form-control me-2 p-2' %>
+12:          <%= f.button :submit, class: 'btn btn-outline-success' %>
+13:          <%= link_to 'Add flat', new_flat_path, class: "btn btn-outline-dark " %>
+14:        <% end %>
+15:        </div>
+16:    
+17:      </div>
+18:    </nav>
+  
+app/views/flats/_navbar.html.erb:9: syntax error, unexpected local variable or method, expecting '.' or &. or :: or '['
+app/views/flats/_navbar.html.erb:9: syntax error, unexpected `do', expecting `end'
+app/views/flats/_navbar.html.erb:21: syntax error, unexpected `end', expecting end-of-input
+app/views/layouts/application.html.erb:18
+Started GET "/flats" for 127.0.0.1 at 2024-02-06 00:13:45 +0000
+Processing by FlatsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering flats/index.html.erb within layouts/application
+  [1m[36mFlat Load (0.2ms)[0m  [1m[34mSELECT "flats".* FROM "flats"[0m
+  ↳ app/views/flats/index.html.erb:3
+  Rendered flats/_card.html.erb (Duration: 1.6ms | Allocations: 483)
+  Rendered flats/index.html.erb within layouts/application (Duration: 17.2ms | Allocations: 5749)
+  Rendered flats/_navbar.html.erb (Duration: 4.3ms | Allocations: 1091)
+  Rendered layout layouts/application.html.erb (Duration: 37.4ms | Allocations: 21521)
+Completed 200 OK in 52ms (Views: 37.1ms | ActiveRecord: 3.1ms | Allocations: 23426)
+
+
+Started GET "/flats" for 127.0.0.1 at 2024-02-06 00:14:51 +0000
+Processing by FlatsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering flats/index.html.erb within layouts/application
+  [1m[36mFlat Load (0.1ms)[0m  [1m[34mSELECT "flats".* FROM "flats"[0m
+  ↳ app/views/flats/index.html.erb:3
+  Rendered flats/_card.html.erb (Duration: 2.8ms | Allocations: 483)
+  Rendered flats/index.html.erb within layouts/application (Duration: 14.3ms | Allocations: 5689)
+  Rendered flats/_navbar.html.erb (Duration: 2.4ms | Allocations: 1085)
+  Rendered layout layouts/application.html.erb (Duration: 38.7ms | Allocations: 21454)
+Completed 200 OK in 47ms (Views: 38.4ms | ActiveRecord: 2.2ms | Allocations: 23358)
+
+
+Started GET "/flats/1" for 127.0.0.1 at 2024-02-06 00:17:02 +0000
+Processing by FlatsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mFlat Load (0.3ms)[0m  [1m[34mSELECT "flats".* FROM "flats" WHERE "flats"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/flats_controller.rb:45:in `set_flat'
+  Rendering layout layouts/application.html.erb
+  Rendering flats/show.html.erb within layouts/application
+  Rendered flats/show.html.erb within layouts/application (Duration: 1.8ms | Allocations: 290)
+  Rendered flats/_navbar.html.erb (Duration: 3.5ms | Allocations: 827)
+  Rendered layout layouts/application.html.erb (Duration: 9.3ms | Allocations: 2732)
+Completed 200 OK in 36ms (Views: 10.3ms | ActiveRecord: 0.3ms | Allocations: 7829)
+
+
+Started GET "/flats" for 127.0.0.1 at 2024-02-06 00:19:16 +0000
+Processing by FlatsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering flats/index.html.erb within layouts/application
+  [1m[36mFlat Load (0.1ms)[0m  [1m[34mSELECT "flats".* FROM "flats"[0m
+  ↳ app/views/flats/index.html.erb:3
+  Rendered flats/_card.html.erb (Duration: 1.0ms | Allocations: 483)
+  Rendered flats/index.html.erb within layouts/application (Duration: 9.1ms | Allocations: 5747)
+  Rendered flats/_navbar.html.erb (Duration: 1.9ms | Allocations: 1072)
+  Rendered layout layouts/application.html.erb (Duration: 22.7ms | Allocations: 21498)
+Completed 200 OK in 27ms (Views: 22.4ms | ActiveRecord: 2.0ms | Allocations: 23403)
+
+
+Started GET "/flats/1/edit" for 127.0.0.1 at 2024-02-06 00:19:34 +0000
+Processing by FlatsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mFlat Load (0.1ms)[0m  [1m[34mSELECT "flats".* FROM "flats" WHERE "flats"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/flats_controller.rb:45:in `set_flat'
+  Rendering layout layouts/application.html.erb
+  Rendering flats/edit.html.erb within layouts/application
+  Rendered flats/_form.html.erb (Duration: 9.0ms | Allocations: 4846)
+  Rendered flats/edit.html.erb within layouts/application (Duration: 9.9ms | Allocations: 5098)
+  Rendered flats/_navbar.html.erb (Duration: 2.2ms | Allocations: 990)
+  Rendered layout layouts/application.html.erb (Duration: 27.9ms | Allocations: 20502)
+Completed 200 OK in 53ms (Views: 29.6ms | ActiveRecord: 2.4ms | Allocations: 27882)
+
+
+Started GET "/flats/1" for 127.0.0.1 at 2024-02-06 00:19:39 +0000
+Processing by FlatsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mFlat Load (0.2ms)[0m  [1m[34mSELECT "flats".* FROM "flats" WHERE "flats"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/flats_controller.rb:45:in `set_flat'
+  Rendering layout layouts/application.html.erb
+  Rendering flats/show.html.erb within layouts/application
+  Rendered flats/show.html.erb within layouts/application (Duration: 1.4ms | Allocations: 247)
+  Rendered flats/_navbar.html.erb (Duration: 1.1ms | Allocations: 696)
+  Rendered layout layouts/application.html.erb (Duration: 5.1ms | Allocations: 2344)
+Completed 200 OK in 9ms (Views: 5.6ms | ActiveRecord: 0.2ms | Allocations: 3239)
+
+
+Started GET "/flats" for 127.0.0.1 at 2024-02-06 00:21:15 +0000
+Processing by FlatsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering flats/index.html.erb within layouts/application
+  [1m[36mFlat Load (0.3ms)[0m  [1m[34mSELECT "flats".* FROM "flats"[0m
+  ↳ app/views/flats/index.html.erb:3
+  Rendered flats/_card.html.erb (Duration: 2.0ms | Allocations: 483)
+  Rendered flats/index.html.erb within layouts/application (Duration: 17.4ms | Allocations: 5691)
+  Rendered flats/_navbar.html.erb (Duration: 2.9ms | Allocations: 1073)
+  Rendered layout layouts/application.html.erb (Duration: 44.4ms | Allocations: 21379)
+Completed 200 OK in 64ms (Views: 55.2ms | ActiveRecord: 4.5ms | Allocations: 23283)
+
+
+Started GET "/flats" for 127.0.0.1 at 2024-02-06 00:21:26 +0000
+Processing by FlatsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering flats/index.html.erb within layouts/application
+  [1m[36mFlat Load (0.2ms)[0m  [1m[34mSELECT "flats".* FROM "flats"[0m
+  ↳ app/views/flats/index.html.erb:3
+  Rendered flats/_card.html.erb (Duration: 1.7ms | Allocations: 483)
+  Rendered flats/index.html.erb within layouts/application (Duration: 16.3ms | Allocations: 5690)
+  Rendered flats/_navbar.html.erb (Duration: 3.0ms | Allocations: 1073)
+  Rendered layout layouts/application.html.erb (Duration: 37.9ms | Allocations: 21460)
+Completed 200 OK in 46ms (Views: 37.0ms | ActiveRecord: 3.1ms | Allocations: 23371)
+
+
+Started GET "/flats" for 127.0.0.1 at 2024-02-06 00:21:35 +0000
+Processing by FlatsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering flats/index.html.erb within layouts/application
+  [1m[36mFlat Load (0.1ms)[0m  [1m[34mSELECT "flats".* FROM "flats"[0m
+  ↳ app/views/flats/index.html.erb:3
+  Rendered flats/_card.html.erb (Duration: 1.6ms | Allocations: 487)
+  Rendered flats/index.html.erb within layouts/application (Duration: 26.1ms | Allocations: 5742)
+  Rendered flats/_navbar.html.erb (Duration: 2.7ms | Allocations: 1088)
+  Rendered layout layouts/application.html.erb (Duration: 44.2ms | Allocations: 21581)
+Completed 200 OK in 52ms (Views: 43.8ms | ActiveRecord: 2.5ms | Allocations: 23482)
+
+
+Started GET "/flats" for 127.0.0.1 at 2024-02-06 00:22:43 +0000
+Processing by FlatsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering flats/index.html.erb within layouts/application
+  [1m[36mFlat Load (0.1ms)[0m  [1m[34mSELECT "flats".* FROM "flats"[0m
+  ↳ app/views/flats/index.html.erb:3
+  Rendered flats/_card.html.erb (Duration: 2.2ms | Allocations: 483)
+  Rendered flats/index.html.erb within layouts/application (Duration: 17.4ms | Allocations: 5689)
+  Rendered flats/_navbar.html.erb (Duration: 3.1ms | Allocations: 1073)
+  Rendered layout layouts/application.html.erb (Duration: 33.8ms | Allocations: 21422)
+Completed 200 OK in 40ms (Views: 32.6ms | ActiveRecord: 3.1ms | Allocations: 23330)
+
+
+Started GET "/flats" for 127.0.0.1 at 2024-02-06 00:22:45 +0000
+Processing by FlatsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering flats/index.html.erb within layouts/application
+  [1m[36mFlat Load (0.1ms)[0m  [1m[34mSELECT "flats".* FROM "flats"[0m
+  ↳ app/views/flats/index.html.erb:3
+  Rendered flats/_card.html.erb (Duration: 0.4ms | Allocations: 149)
+  Rendered flats/index.html.erb within layouts/application (Duration: 2.5ms | Allocations: 791)
+  Rendered flats/_navbar.html.erb (Duration: 1.4ms | Allocations: 682)
+  Rendered layout layouts/application.html.erb (Duration: 7.0ms | Allocations: 2849)
+Completed 200 OK in 8ms (Views: 7.4ms | ActiveRecord: 0.2ms | Allocations: 3121)
+
+
+Started GET "/flats" for 127.0.0.1 at 2024-02-06 00:30:32 +0000
+Processing by FlatsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering flats/index.html.erb within layouts/application
+  [1m[36mFlat Load (0.9ms)[0m  [1m[34mSELECT "flats".* FROM "flats"[0m
+  ↳ app/views/flats/index.html.erb:3
+  Rendered flats/_card.html.erb (Duration: 1.2ms | Allocations: 483)
+  Rendered flats/index.html.erb within layouts/application (Duration: 9.3ms | Allocations: 5119)
+  Rendered flats/_navbar.html.erb (Duration: 2.0ms | Allocations: 1082)
+  Rendered layout layouts/application.html.erb (Duration: 27.1ms | Allocations: 20877)
+Completed 200 OK in 33ms (Views: 27.5ms | ActiveRecord: 1.4ms | Allocations: 22782)
+
+
+Started GET "/flats" for 127.0.0.1 at 2024-02-06 00:33:03 +0000
+Processing by FlatsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering flats/index.html.erb within layouts/application
+  [1m[36mFlat Load (0.1ms)[0m  [1m[34mSELECT "flats".* FROM "flats"[0m
+  ↳ app/views/flats/index.html.erb:3
+  Rendered flats/_card.html.erb (Duration: 1.5ms | Allocations: 483)
+  Rendered flats/index.html.erb within layouts/application (Duration: 12.8ms | Allocations: 5751)
+  Rendered flats/_navbar.html.erb (Duration: 3.2ms | Allocations: 1096)
+  Rendered layout layouts/application.html.erb (Duration: 29.8ms | Allocations: 21525)
+Completed 200 OK in 35ms (Views: 29.3ms | ActiveRecord: 2.4ms | Allocations: 23432)
+
+
+Started GET "/flats" for 127.0.0.1 at 2024-02-06 00:33:05 +0000
+Processing by FlatsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering flats/index.html.erb within layouts/application
+  [1m[36mFlat Load (0.2ms)[0m  [1m[34mSELECT "flats".* FROM "flats"[0m
+  ↳ app/views/flats/index.html.erb:3
+  Rendered flats/_card.html.erb (Duration: 1.0ms | Allocations: 149)
+  Rendered flats/index.html.erb within layouts/application (Duration: 3.6ms | Allocations: 791)
+  Rendered flats/_navbar.html.erb (Duration: 1.7ms | Allocations: 682)
+  Rendered layout layouts/application.html.erb (Duration: 10.9ms | Allocations: 2864)
+Completed 200 OK in 13ms (Views: 11.7ms | ActiveRecord: 0.2ms | Allocations: 3137)
+
+
+Started GET "/flats" for 127.0.0.1 at 2024-02-06 00:34:38 +0000
+Processing by FlatsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering flats/index.html.erb within layouts/application
+  [1m[36mFlat Load (0.1ms)[0m  [1m[34mSELECT "flats".* FROM "flats"[0m
+  ↳ app/views/flats/index.html.erb:3
+  Rendered flats/_card.html.erb (Duration: 1.2ms | Allocations: 483)
+  Rendered flats/index.html.erb within layouts/application (Duration: 10.1ms | Allocations: 5689)
+  Rendered flats/_navbar.html.erb (Duration: 3.3ms | Allocations: 1078)
+  Rendered layout layouts/application.html.erb (Duration: 24.8ms | Allocations: 21391)
+Completed 200 OK in 31ms (Views: 24.8ms | ActiveRecord: 1.9ms | Allocations: 23298)
+
+
+Started GET "/flats" for 127.0.0.1 at 2024-02-06 00:35:49 +0000
+Processing by FlatsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering flats/index.html.erb within layouts/application
+  [1m[36mFlat Load (0.1ms)[0m  [1m[34mSELECT "flats".* FROM "flats"[0m
+  ↳ app/views/flats/index.html.erb:3
+  Rendered flats/_card.html.erb (Duration: 1.0ms | Allocations: 483)
+  Rendered flats/index.html.erb within layouts/application (Duration: 10.5ms | Allocations: 5711)
+  Rendered flats/_navbar.html.erb (Duration: 2.8ms | Allocations: 1088)
+  Rendered layout layouts/application.html.erb (Duration: 24.8ms | Allocations: 21484)
+Completed 200 OK in 30ms (Views: 24.8ms | ActiveRecord: 2.0ms | Allocations: 23391)
+
+
+Started GET "/flats" for 127.0.0.1 at 2024-02-06 00:36:06 +0000
+Processing by FlatsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering flats/index.html.erb within layouts/application
+  [1m[36mFlat Load (0.1ms)[0m  [1m[34mSELECT "flats".* FROM "flats"[0m
+  ↳ app/views/flats/index.html.erb:3
+  Rendered flats/_card.html.erb (Duration: 1.8ms | Allocations: 483)
+  Rendered flats/index.html.erb within layouts/application (Duration: 14.5ms | Allocations: 5690)
+  Rendered flats/_navbar.html.erb (Duration: 2.9ms | Allocations: 1078)
+  Rendered layout layouts/application.html.erb (Duration: 34.5ms | Allocations: 21394)
+Completed 200 OK in 41ms (Views: 34.3ms | ActiveRecord: 2.6ms | Allocations: 23301)
+
+
+Started GET "/flats" for 127.0.0.1 at 2024-02-06 00:36:31 +0000
+Processing by FlatsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering flats/index.html.erb within layouts/application
+  [1m[36mFlat Load (0.1ms)[0m  [1m[34mSELECT "flats".* FROM "flats"[0m
+  ↳ app/views/flats/index.html.erb:3
+  Rendered flats/_card.html.erb (Duration: 1.0ms | Allocations: 483)
+  Rendered flats/index.html.erb within layouts/application (Duration: 9.7ms | Allocations: 5711)
+  Rendered flats/_navbar.html.erb (Duration: 1.8ms | Allocations: 1090)
+  Rendered layout layouts/application.html.erb (Duration: 25.0ms | Allocations: 21499)
+Completed 200 OK in 30ms (Views: 24.5ms | ActiveRecord: 1.8ms | Allocations: 23406)
+
+
+Started GET "/flats" for 127.0.0.1 at 2024-02-06 00:40:28 +0000
+Processing by FlatsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering flats/index.html.erb within layouts/application
+  [1m[36mFlat Load (0.1ms)[0m  [1m[34mSELECT "flats".* FROM "flats"[0m
+  ↳ app/views/flats/index.html.erb:3
+  Rendered flats/_card.html.erb (Duration: 2.0ms | Allocations: 483)
+  Rendered flats/index.html.erb within layouts/application (Duration: 11.1ms | Allocations: 5690)
+  Rendered flats/_navbar.html.erb (Duration: 2.4ms | Allocations: 1087)
+  Rendered layout layouts/application.html.erb (Duration: 26.1ms | Allocations: 21481)
+Completed 200 OK in 31ms (Views: 25.9ms | ActiveRecord: 2.0ms | Allocations: 23388)
+
+
+Started GET "/flats" for 127.0.0.1 at 2024-02-06 00:40:47 +0000
+Processing by FlatsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering flats/index.html.erb within layouts/application
+  [1m[36mFlat Load (0.1ms)[0m  [1m[34mSELECT "flats".* FROM "flats"[0m
+  ↳ app/views/flats/index.html.erb:3
+  Rendered flats/_card.html.erb (Duration: 1.3ms | Allocations: 483)
+  Rendered flats/index.html.erb within layouts/application (Duration: 12.6ms | Allocations: 5711)
+  Rendered flats/_navbar.html.erb (Duration: 2.8ms | Allocations: 1088)
+  Rendered layout layouts/application.html.erb (Duration: 32.5ms | Allocations: 21563)
+Completed 200 OK in 37ms (Views: 32.1ms | ActiveRecord: 2.0ms | Allocations: 23470)
+
+
+Started GET "/flats" for 127.0.0.1 at 2024-02-06 00:49:40 +0000
+Processing by FlatsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering flats/index.html.erb within layouts/application
+  [1m[36mFlat Load (1.3ms)[0m  [1m[34mSELECT "flats".* FROM "flats"[0m
+  ↳ app/views/flats/index.html.erb:3
+  Rendered flats/_card.html.erb (Duration: 1.1ms | Allocations: 483)
+  Rendered flats/index.html.erb within layouts/application (Duration: 9.0ms | Allocations: 5119)
+  Rendered flats/_navbar.html.erb (Duration: 0.8ms | Allocations: 256)
+  Rendered layout layouts/application.html.erb (Duration: 24.3ms | Allocations: 20067)
+Completed 200 OK in 29ms (Views: 24.1ms | ActiveRecord: 1.8ms | Allocations: 21975)
+
+
+Started GET "/flats" for 127.0.0.1 at 2024-02-06 00:50:34 +0000
+Processing by FlatsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering flats/index.html.erb within layouts/application
+  [1m[36mFlat Load (0.2ms)[0m  [1m[34mSELECT "flats".* FROM "flats"[0m
+  ↳ app/views/flats/index.html.erb:3
+  Rendered flats/_card.html.erb (Duration: 1.4ms | Allocations: 483)
+  Rendered flats/index.html.erb within layouts/application (Duration: 12.0ms | Allocations: 5751)
+  Rendered flats/_navbar.html.erb (Duration: 1.0ms | Allocations: 305)
+  Rendered layout layouts/application.html.erb (Duration: 27.7ms | Allocations: 20755)
+Completed 200 OK in 32ms (Views: 25.7ms | ActiveRecord: 3.5ms | Allocations: 22662)
+
+
+Started GET "/flats" for 127.0.0.1 at 2024-02-06 00:51:15 +0000
+Processing by FlatsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering flats/index.html.erb within layouts/application
+  [1m[36mFlat Load (0.1ms)[0m  [1m[34mSELECT "flats".* FROM "flats"[0m
+  ↳ app/views/flats/index.html.erb:3
+  Rendered flats/_card.html.erb (Duration: 1.8ms | Allocations: 483)
+  Rendered flats/index.html.erb within layouts/application (Duration: 10.9ms | Allocations: 5689)
+  Rendered flats/_navbar.html.erb (Duration: 0.8ms | Allocations: 303)
+  Rendered layout layouts/application.html.erb (Duration: 25.1ms | Allocations: 20696)
+Completed 200 OK in 30ms (Views: 24.1ms | ActiveRecord: 2.7ms | Allocations: 22603)
+
+
+Started GET "/flats" for 127.0.0.1 at 2024-02-06 00:51:42 +0000
+Processing by FlatsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering flats/index.html.erb within layouts/application
+  [1m[36mFlat Load (0.1ms)[0m  [1m[34mSELECT "flats".* FROM "flats"[0m
+  ↳ app/views/flats/index.html.erb:3
+  Rendered flats/_card.html.erb (Duration: 1.2ms | Allocations: 483)
+  Rendered flats/index.html.erb within layouts/application (Duration: 10.3ms | Allocations: 5751)
+  Rendered flats/_navbar.html.erb (Duration: 1.6ms | Allocations: 303)
+  Rendered layout layouts/application.html.erb (Duration: 23.4ms | Allocations: 20792)
+Completed 200 OK in 28ms (Views: 23.3ms | ActiveRecord: 1.8ms | Allocations: 22699)
+
+
+Started GET "/flats" for 127.0.0.1 at 2024-02-06 00:52:54 +0000
+Processing by FlatsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering flats/index.html.erb within layouts/application
+  [1m[36mFlat Load (0.1ms)[0m  [1m[34mSELECT "flats".* FROM "flats"[0m
+  ↳ app/views/flats/index.html.erb:3
+  Rendered flats/_card.html.erb (Duration: 1.2ms | Allocations: 483)
+  Rendered flats/index.html.erb within layouts/application (Duration: 14.1ms | Allocations: 5689)
+  Rendered flats/_navbar.html.erb (Duration: 1.0ms | Allocations: 258)
+  Rendered layout layouts/application.html.erb (Duration: 41.2ms | Allocations: 20630)
+Completed 200 OK in 46ms (Views: 40.8ms | ActiveRecord: 2.3ms | Allocations: 22537)
+
+
+Started GET "/flats/new" for 127.0.0.1 at 2024-02-06 00:53:04 +0000
+Processing by FlatsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering flats/new.html.erb within layouts/application
+  Rendered flats/_form.html.erb (Duration: 12.2ms | Allocations: 4477)
+  Rendered flats/new.html.erb within layouts/application (Duration: 14.4ms | Allocations: 4690)
+  Rendered flats/_navbar.html.erb (Duration: 0.4ms | Allocations: 81)
+  Rendered layout layouts/application.html.erb (Duration: 20.8ms | Allocations: 5979)
+Completed 200 OK in 24ms (Views: 22.3ms | ActiveRecord: 0.0ms | Allocations: 6322)
+
+
+Started POST "/flats" for 127.0.0.1 at 2024-02-06 00:53:46 +0000
+Processing by FlatsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "flat"=>{"name"=>"dwed", "address"=>"dwe", "description"=>"dw", "price_per_night"=>"1", "number_of_guests"=>"2", "img_url"=>"https://images.unsplash.com/photo-1682687220199-d0124f48f95b?q=80&w=2970&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"}, "commit"=>"Create Flat"}
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/flats_controller.rb:15:in `create'
+  [1m[36mFlat Create (2.3ms)[0m  [1m[32mINSERT INTO "flats" ("name", "address", "description", "price_per_night", "number_of_guests", "created_at", "updated_at", "img_url") VALUES (?, ?, ?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["name", "dwed"], ["address", "dwe"], ["description", "dw"], ["price_per_night", 1], ["number_of_guests", 2], ["created_at", "2024-02-06 00:53:46.163826"], ["updated_at", "2024-02-06 00:53:46.163826"], ["img_url", "https://images.unsplash.com/photo-1682687220199-d0124f48f95b?q=80&w=2970&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"]]
+  ↳ app/controllers/flats_controller.rb:15:in `create'
+  [1m[36mTRANSACTION (10.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/flats_controller.rb:15:in `create'
+Redirected to http://127.0.0.1:3000/flats
+Completed 302 Found in 21ms (ActiveRecord: 13.3ms | Allocations: 2673)
+
+
+Started GET "/flats" for 127.0.0.1 at 2024-02-06 00:53:46 +0000
+Processing by FlatsController#index as TURBO_STREAM
+  Rendering layout layouts/application.html.erb
+  Rendering flats/index.html.erb within layouts/application
+  [1m[36mFlat Load (0.2ms)[0m  [1m[34mSELECT "flats".* FROM "flats"[0m
+  ↳ app/views/flats/index.html.erb:3
+  Rendered flats/_card.html.erb (Duration: 0.7ms | Allocations: 149)
+  Rendered flats/_card.html.erb (Duration: 0.3ms | Allocations: 134)
+  Rendered flats/index.html.erb within layouts/application (Duration: 4.3ms | Allocations: 1034)
+  Rendered flats/_navbar.html.erb (Duration: 0.2ms | Allocations: 81)
+  Rendered layout layouts/application.html.erb (Duration: 8.8ms | Allocations: 2511)
+Completed 200 OK in 11ms (Views: 9.6ms | ActiveRecord: 0.2ms | Allocations: 2817)
+
+
+Started GET "/flats?search=Madrid" for 127.0.0.1 at 2024-02-06 00:53:52 +0000
+Processing by FlatsController#index as HTML
+  Parameters: {"search"=>"Madrid"}
+Completed 500 Internal Server Error in 1ms (ActiveRecord: 0.0ms | Allocations: 467)
+
+
+  
+TypeError (no implicit conversion of Symbol into Integer):
+  
+app/controllers/flats_controller.rb:5:in `[]'
+app/controllers/flats_controller.rb:5:in `index'
+Started GET "/flats/new" for 127.0.0.1 at 2024-02-06 00:54:04 +0000
+Processing by FlatsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering flats/new.html.erb within layouts/application
+  Rendered flats/_form.html.erb (Duration: 10.7ms | Allocations: 3939)
+  Rendered flats/new.html.erb within layouts/application (Duration: 11.4ms | Allocations: 4000)
+  Rendered flats/_navbar.html.erb (Duration: 0.2ms | Allocations: 83)
+  Rendered layout layouts/application.html.erb (Duration: 14.4ms | Allocations: 5398)
+Completed 200 OK in 17ms (Views: 15.9ms | ActiveRecord: 0.0ms | Allocations: 5698)
+
+
+Started GET "/flats/new" for 127.0.0.1 at 2024-02-06 00:54:04 +0000
+Processing by FlatsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering flats/new.html.erb within layouts/application
+  Rendered flats/_form.html.erb (Duration: 8.6ms | Allocations: 3701)
+  Rendered flats/new.html.erb within layouts/application (Duration: 9.5ms | Allocations: 3774)
+  Rendered flats/_navbar.html.erb (Duration: 0.2ms | Allocations: 81)
+  Rendered layout layouts/application.html.erb (Duration: 13.1ms | Allocations: 5069)
+Completed 200 OK in 15ms (Views: 14.0ms | ActiveRecord: 0.0ms | Allocations: 5331)
+
+
+Started GET "/flats" for 127.0.0.1 at 2024-02-06 00:54:12 +0000
+Processing by FlatsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering flats/index.html.erb within layouts/application
+  [1m[36mFlat Load (0.1ms)[0m  [1m[34mSELECT "flats".* FROM "flats"[0m
+  ↳ app/views/flats/index.html.erb:3
+  Rendered flats/_card.html.erb (Duration: 0.6ms | Allocations: 156)
+  Rendered flats/_card.html.erb (Duration: 0.6ms | Allocations: 134)
+  Rendered flats/index.html.erb within layouts/application (Duration: 3.5ms | Allocations: 1070)
+  Rendered flats/_navbar.html.erb (Duration: 0.2ms | Allocations: 81)
+  Rendered layout layouts/application.html.erb (Duration: 6.6ms | Allocations: 2536)
+Completed 200 OK in 8ms (Views: 7.2ms | ActiveRecord: 0.2ms | Allocations: 2793)
+
+
+Started GET "/flats" for 127.0.0.1 at 2024-02-06 00:54:27 +0000
+Processing by FlatsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering flats/index.html.erb within layouts/application
+  [1m[36mFlat Load (0.2ms)[0m  [1m[34mSELECT "flats".* FROM "flats"[0m
+  ↳ app/views/flats/index.html.erb:3
+  Rendered flats/_card.html.erb (Duration: 1.6ms | Allocations: 483)
+  Rendered flats/_card.html.erb (Duration: 0.3ms | Allocations: 134)
+  Rendered flats/index.html.erb within layouts/application (Duration: 14.6ms | Allocations: 5950)
+  Rendered flats/_navbar.html.erb (Duration: 1.1ms | Allocations: 254)
+  Rendered layout layouts/application.html.erb (Duration: 32.7ms | Allocations: 20922)
+Completed 200 OK in 39ms (Views: 32.0ms | ActiveRecord: 3.0ms | Allocations: 22829)
+
+
+Started GET "/flats" for 127.0.0.1 at 2024-02-06 00:54:54 +0000
+Processing by FlatsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering flats/index.html.erb within layouts/application
+  [1m[36mFlat Load (0.1ms)[0m  [1m[34mSELECT "flats".* FROM "flats"[0m
+  ↳ app/views/flats/index.html.erb:3
+  Rendered flats/_card.html.erb (Duration: 1.3ms | Allocations: 485)
+  Rendered flats/_card.html.erb (Duration: 0.2ms | Allocations: 134)
+  Rendered flats/index.html.erb within layouts/application (Duration: 18.7ms | Allocations: 5911)
+  Rendered flats/_navbar.html.erb (Duration: 0.8ms | Allocations: 254)
+  Rendered layout layouts/application.html.erb (Duration: 35.5ms | Allocations: 20854)
+Completed 200 OK in 42ms (Views: 35.7ms | ActiveRecord: 1.8ms | Allocations: 22759)
+
+
+Started GET "/flats" for 127.0.0.1 at 2024-02-06 00:55:38 +0000
+Processing by FlatsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering flats/index.html.erb within layouts/application
+  [1m[36mFlat Load (0.1ms)[0m  [1m[34mSELECT "flats".* FROM "flats"[0m
+  ↳ app/views/flats/index.html.erb:3
+  Rendered flats/_card.html.erb (Duration: 1.8ms | Allocations: 483)
+  Rendered flats/_card.html.erb (Duration: 0.5ms | Allocations: 134)
+  Rendered flats/index.html.erb within layouts/application (Duration: 17.9ms | Allocations: 5891)
+  Rendered flats/_navbar.html.erb (Duration: 1.9ms | Allocations: 256)
+  Rendered layout layouts/application.html.erb (Duration: 133.6ms | Allocations: 20816)
+Completed 200 OK in 139ms (Views: 132.2ms | ActiveRecord: 3.6ms | Allocations: 22723)
+
+
+Started GET "/flats" for 127.0.0.1 at 2024-02-06 00:56:14 +0000
+Processing by FlatsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering flats/index.html.erb within layouts/application
+  [1m[36mFlat Load (0.1ms)[0m  [1m[34mSELECT "flats".* FROM "flats"[0m
+  ↳ app/views/flats/index.html.erb:3
+  Rendered flats/_card.html.erb (Duration: 1.9ms | Allocations: 483)
+  Rendered flats/_card.html.erb (Duration: 0.4ms | Allocations: 134)
+  Rendered flats/index.html.erb within layouts/application (Duration: 15.7ms | Allocations: 5948)
+  Rendered flats/_navbar.html.erb (Duration: 1.1ms | Allocations: 255)
+  Rendered layout layouts/application.html.erb (Duration: 34.4ms | Allocations: 20883)
+Completed 200 OK in 43ms (Views: 35.2ms | ActiveRecord: 3.0ms | Allocations: 22790)
+
+
+Started GET "/flats" for 127.0.0.1 at 2024-02-06 00:57:12 +0000
+Processing by FlatsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering flats/index.html.erb within layouts/application
+  [1m[36mFlat Load (0.5ms)[0m  [1m[34mSELECT "flats".* FROM "flats"[0m
+  ↳ app/views/flats/index.html.erb:3
+  Rendered flats/_card.html.erb (Duration: 2.1ms | Allocations: 483)
+  Rendered flats/_card.html.erb (Duration: 0.3ms | Allocations: 134)
+  Rendered flats/index.html.erb within layouts/application (Duration: 17.2ms | Allocations: 5890)
+  Rendered flats/_navbar.html.erb (Duration: 1.1ms | Allocations: 255)
+  Rendered layout layouts/application.html.erb (Duration: 36.3ms | Allocations: 20762)
+Completed 200 OK in 41ms (Views: 34.7ms | ActiveRecord: 3.2ms | Allocations: 22663)
+
+
+Started GET "/flats" for 127.0.0.1 at 2024-02-06 00:57:47 +0000
+Processing by FlatsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering flats/index.html.erb within layouts/application
+  [1m[36mFlat Load (0.2ms)[0m  [1m[34mSELECT "flats".* FROM "flats"[0m
+  ↳ app/views/flats/index.html.erb:3
+  Rendered flats/_card.html.erb (Duration: 1.7ms | Allocations: 483)
+  Rendered flats/_card.html.erb (Duration: 0.2ms | Allocations: 134)
+  Rendered flats/index.html.erb within layouts/application (Duration: 13.8ms | Allocations: 5891)
+  Rendered flats/_navbar.html.erb (Duration: 1.4ms | Allocations: 258)
+  Rendered layout layouts/application.html.erb (Duration: 40.4ms | Allocations: 20854)
+Completed 200 OK in 47ms (Views: 40.1ms | ActiveRecord: 3.0ms | Allocations: 22760)
+
+
+Started GET "/flats?search=dwed" for 127.0.0.1 at 2024-02-06 00:58:50 +0000
+Processing by FlatsController#index as HTML
+  Parameters: {"search"=>"dwed"}
+Completed 500 Internal Server Error in 1ms (ActiveRecord: 0.0ms | Allocations: 468)
+
+
+  
+TypeError (no implicit conversion of Symbol into Integer):
+  
+app/controllers/flats_controller.rb:5:in `[]'
+app/controllers/flats_controller.rb:5:in `index'
+Started GET "/flats" for 127.0.0.1 at 2024-02-06 01:00:04 +0000
+Processing by FlatsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering flats/index.html.erb within layouts/application
+  [1m[36mFlat Load (0.1ms)[0m  [1m[34mSELECT "flats".* FROM "flats"[0m
+  ↳ app/views/flats/index.html.erb:3
+  Rendered flats/_card.html.erb (Duration: 3.4ms | Allocations: 483)
+  Rendered flats/_card.html.erb (Duration: 0.3ms | Allocations: 134)
+  Rendered flats/index.html.erb within layouts/application (Duration: 12.6ms | Allocations: 5950)
+  Rendered flats/_navbar.html.erb (Duration: 1.3ms | Allocations: 253)
+  Rendered layout layouts/application.html.erb (Duration: 35.8ms | Allocations: 20885)
+Completed 200 OK in 42ms (Views: 35.7ms | ActiveRecord: 1.8ms | Allocations: 22792)
+
+
+Started GET "/flats?search=dwed" for 127.0.0.1 at 2024-02-06 01:00:09 +0000
+Processing by FlatsController#index as HTML
+  Parameters: {"search"=>"dwed"}
+  Rendering layout layouts/application.html.erb
+  Rendering flats/index.html.erb within layouts/application
+  [1m[36mFlat Load (0.2ms)[0m  [1m[34mSELECT "flats".* FROM "flats" WHERE (name LIKE '%dwed%')[0m
+  ↳ app/views/flats/index.html.erb:3
+  Rendered flats/_card.html.erb (Duration: 0.7ms | Allocations: 149)
+  Rendered flats/index.html.erb within layouts/application (Duration: 3.0ms | Allocations: 861)
+  Rendered flats/_navbar.html.erb (Duration: 0.3ms | Allocations: 81)
+  Rendered layout layouts/application.html.erb (Duration: 7.2ms | Allocations: 2336)
+Completed 200 OK in 9ms (Views: 7.8ms | ActiveRecord: 0.2ms | Allocations: 2675)
+
+
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              Started GET "/flats?search=dwed" for 127.0.0.1 at 2024-02-06 01:06:02 +0000
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by FlatsController#index as HTML
+  Parameters: {"search"=>"dwed"}
+  Rendering layout layouts/application.html.erb
+  Rendering flats/index.html.erb within layouts/application
+  [1m[36mFlat Load (0.5ms)[0m  [1m[34mSELECT "flats".* FROM "flats" WHERE (name LIKE '%dwed%')[0m
+  ↳ app/views/flats/index.html.erb:3
+  Rendered flats/_card.html.erb (Duration: 1.0ms | Allocations: 642)
+  Rendered flats/index.html.erb within layouts/application (Duration: 37.0ms | Allocations: 15952)
+  Rendered flats/_navbar.html.erb (Duration: 0.8ms | Allocations: 317)
+  Rendered layout layouts/application.html.erb (Duration: 123.7ms | Allocations: 48638)
+Completed 200 OK in 152ms (Views: 128.0ms | ActiveRecord: 1.9ms | Allocations: 58482)
+
+
+Started GET "/flats?search=dwed" for 127.0.0.1 at 2024-02-06 01:07:33 +0000
+Processing by FlatsController#index as HTML
+  Parameters: {"search"=>"dwed"}
+  Rendering layout layouts/application.html.erb
+  Rendering flats/index.html.erb within layouts/application
+  [1m[36mFlat Load (0.1ms)[0m  [1m[34mSELECT "flats".* FROM "flats" WHERE (name LIKE '%dwed%')[0m
+  ↳ app/views/flats/index.html.erb:3
+  Rendered flats/_card.html.erb (Duration: 0.7ms | Allocations: 483)
+  Rendered flats/index.html.erb within layouts/application (Duration: 5.7ms | Allocations: 5436)
+  Rendered flats/_navbar.html.erb (Duration: 0.5ms | Allocations: 257)
+  Rendered layout layouts/application.html.erb (Duration: 19.8ms | Allocations: 20358)
+Completed 200 OK in 24ms (Views: 20.4ms | ActiveRecord: 1.5ms | Allocations: 22704)
+
+
+Started GET "/flats?search=dwed" for 127.0.0.1 at 2024-02-06 01:08:45 +0000
+Processing by FlatsController#index as HTML
+  Parameters: {"search"=>"dwed"}
+  Rendering layout layouts/application.html.erb
+  Rendering flats/index.html.erb within layouts/application
+  [1m[36mFlat Load (0.1ms)[0m  [1m[34mSELECT "flats".* FROM "flats" WHERE (name LIKE '%dwed%')[0m
+  ↳ app/views/flats/index.html.erb:3
+  Rendered flats/_card.html.erb (Duration: 0.8ms | Allocations: 483)
+  Rendered flats/index.html.erb within layouts/application (Duration: 6.6ms | Allocations: 5387)
+  Rendered flats/_navbar.html.erb (Duration: 0.5ms | Allocations: 255)
+  Rendered layout layouts/application.html.erb (Duration: 15.6ms | Allocations: 20278)
+Completed 200 OK in 20ms (Views: 16.2ms | ActiveRecord: 1.7ms | Allocations: 22624)
+
+
+Started GET "/flats?search=dwed" for 127.0.0.1 at 2024-02-06 01:11:07 +0000
+Processing by FlatsController#index as HTML
+  Parameters: {"search"=>"dwed"}
+  Rendering layout layouts/application.html.erb
+  Rendering flats/index.html.erb within layouts/application
+  [1m[36mFlat Load (0.1ms)[0m  [1m[34mSELECT "flats".* FROM "flats" WHERE (name LIKE '%dwed%')[0m
+  ↳ app/views/flats/index.html.erb:3
+  Rendered flats/_card.html.erb (Duration: 0.6ms | Allocations: 483)
+  Rendered flats/index.html.erb within layouts/application (Duration: 4.1ms | Allocations: 5390)
+  Rendered flats/_navbar.html.erb (Duration: 0.5ms | Allocations: 255)
+  Rendered layout layouts/application.html.erb (Duration: 10.2ms | Allocations: 20330)
+Completed 200 OK in 13ms (Views: 10.9ms | ActiveRecord: 0.9ms | Allocations: 22665)
+
+
+Started GET "/flats?search=dwed" for 127.0.0.1 at 2024-02-06 01:12:34 +0000
+Processing by FlatsController#index as HTML
+  Parameters: {"search"=>"dwed"}
+  Rendering layout layouts/application.html.erb
+  Rendering flats/index.html.erb within layouts/application
+  [1m[36mFlat Load (0.1ms)[0m  [1m[34mSELECT "flats".* FROM "flats" WHERE (name LIKE '%dwed%')[0m
+  ↳ app/views/flats/index.html.erb:3
+  Rendered flats/_card.html.erb (Duration: 0.6ms | Allocations: 483)
+  Rendered flats/index.html.erb within layouts/application (Duration: 4.5ms | Allocations: 5367)
+  Rendered flats/_navbar.html.erb (Duration: 0.7ms | Allocations: 267)
+  Rendered layout layouts/application.html.erb (Duration: 14.7ms | Allocations: 20330)
+Completed 200 OK in 18ms (Views: 15.4ms | ActiveRecord: 1.2ms | Allocations: 22665)
+
+
+Started GET "/flats?search=dwed" for 127.0.0.1 at 2024-02-06 01:12:42 +0000
+Processing by FlatsController#index as HTML
+  Parameters: {"search"=>"dwed"}
+  Rendering layout layouts/application.html.erb
+  Rendering flats/index.html.erb within layouts/application
+  [1m[36mFlat Load (0.1ms)[0m  [1m[34mSELECT "flats".* FROM "flats" WHERE (name LIKE '%dwed%')[0m
+  ↳ app/views/flats/index.html.erb:3
+  Rendered flats/_card.html.erb (Duration: 0.6ms | Allocations: 483)
+  Rendered flats/index.html.erb within layouts/application (Duration: 4.1ms | Allocations: 5425)
+  Rendered flats/_navbar.html.erb (Duration: 0.4ms | Allocations: 253)
+  Rendered layout layouts/application.html.erb (Duration: 9.6ms | Allocations: 20371)
+Completed 200 OK in 12ms (Views: 10.0ms | ActiveRecord: 0.9ms | Allocations: 22718)
+
+
+Started GET "/flats?search=dwed" for 127.0.0.1 at 2024-02-06 01:15:01 +0000
+Processing by FlatsController#index as HTML
+  Parameters: {"search"=>"dwed"}
+  Rendering layout layouts/application.html.erb
+  Rendering flats/index.html.erb within layouts/application
+  [1m[36mFlat Load (0.1ms)[0m  [1m[34mSELECT "flats".* FROM "flats" WHERE (name LIKE '%dwed%')[0m
+  ↳ app/views/flats/index.html.erb:3
+  Rendered flats/_card.html.erb (Duration: 0.5ms | Allocations: 483)
+  Rendered flats/index.html.erb within layouts/application (Duration: 4.0ms | Allocations: 5390)
+  Rendered flats/_navbar.html.erb (Duration: 0.4ms | Allocations: 254)
+  Rendered layout layouts/application.html.erb (Duration: 9.7ms | Allocations: 20316)
+Completed 200 OK in 12ms (Views: 10.2ms | ActiveRecord: 0.9ms | Allocations: 22651)
+
+
+Started GET "/flats?search=dwed" for 127.0.0.1 at 2024-02-06 01:15:02 +0000
+Processing by FlatsController#index as HTML
+  Parameters: {"search"=>"dwed"}
+  Rendering layout layouts/application.html.erb
+  Rendering flats/index.html.erb within layouts/application
+  [1m[36mFlat Load (0.1ms)[0m  [1m[34mSELECT "flats".* FROM "flats" WHERE (name LIKE '%dwed%')[0m
+  ↳ app/views/flats/index.html.erb:3
+  Rendered flats/_card.html.erb (Duration: 0.2ms | Allocations: 149)
+  Rendered flats/index.html.erb within layouts/application (Duration: 1.3ms | Allocations: 836)
+  Rendered flats/_navbar.html.erb (Duration: 0.1ms | Allocations: 81)
+  Rendered layout layouts/application.html.erb (Duration: 3.2ms | Allocations: 2310)
+Completed 200 OK in 4ms (Views: 3.6ms | ActiveRecord: 0.1ms | Allocations: 2620)
+
+
+Started GET "/flats?search=dwed" for 127.0.0.1 at 2024-02-06 01:27:39 +0000
+Processing by FlatsController#index as HTML
+  Parameters: {"search"=>"dwed"}
+  Rendering layout layouts/application.html.erb
+  Rendering flats/index.html.erb within layouts/application
+  [1m[36mFlat Load (0.4ms)[0m  [1m[34mSELECT "flats".* FROM "flats" WHERE (name LIKE '%dwed%')[0m
+  ↳ app/views/flats/index.html.erb:3
+  Rendered flats/_card.html.erb (Duration: 0.6ms | Allocations: 483)
+  Rendered flats/index.html.erb within layouts/application (Duration: 4.0ms | Allocations: 5084)
+  Rendered flats/_navbar.html.erb (Duration: 0.4ms | Allocations: 253)
+  Rendered layout layouts/application.html.erb (Duration: 10.7ms | Allocations: 20012)
+Completed 200 OK in 13ms (Views: 10.7ms | ActiveRecord: 0.7ms | Allocations: 22059)
+
+
+Started GET "/flats" for ::1 at 2024-02-06 18:03:55 +0000
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by FlatsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering flats/index.html.erb within layouts/application
+  [1m[36mFlat Load (0.1ms)[0m  [1m[34mSELECT "flats".* FROM "flats"[0m
+  ↳ app/views/flats/index.html.erb:3
+  Rendered flats/_card.html.erb (Duration: 0.8ms | Allocations: 642)
+  Rendered flats/_card.html.erb (Duration: 0.1ms | Allocations: 134)
+  Rendered flats/index.html.erb within layouts/application (Duration: 32.9ms | Allocations: 16493)
+  Rendered flats/_navbar.html.erb (Duration: 1.1ms | Allocations: 273)
+  Rendered layout layouts/application.html.erb (Duration: 80.7ms | Allocations: 43345)
+Completed 200 OK in 94ms (Views: 81.8ms | ActiveRecord: 1.2ms | Allocations: 52698)
+
+
+Started GET "/flats?search=Madrid" for ::1 at 2024-02-06 18:04:09 +0000
+Processing by FlatsController#index as HTML
+  Parameters: {"search"=>"Madrid"}
+  Rendering layout layouts/application.html.erb
+  Rendering flats/index.html.erb within layouts/application
+  [1m[36mFlat Load (0.3ms)[0m  [1m[34mSELECT "flats".* FROM "flats" WHERE (name LIKE '%Madrid%')[0m
+  ↳ app/views/flats/index.html.erb:3
+  Rendered flats/_card.html.erb (Duration: 0.7ms | Allocations: 192)
+  Rendered flats/index.html.erb within layouts/application (Duration: 2.7ms | Allocations: 988)
+  Rendered flats/_navbar.html.erb (Duration: 0.4ms | Allocations: 95)
+  Rendered layout layouts/application.html.erb (Duration: 15.8ms | Allocations: 6698)
+Completed 200 OK in 17ms (Views: 16.0ms | ActiveRecord: 0.3ms | Allocations: 7128)
+
+
